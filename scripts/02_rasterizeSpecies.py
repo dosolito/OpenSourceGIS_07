@@ -83,19 +83,6 @@ class RasterizeSpecies(QgsProcessingAlgorithm):
 
         attribute = "BINOMIAL"
         targetSpecies = ["Chromis cyanea", "Microspathodon dorsalis", "Stegastes acapulcoensis"]
-        '''
-        # Intersect with threat areas
-        output_intersection = os.path.join(destination, "species_reefs_intersected.shp")
-        # Set parameters for algorithm
-        params = {
-            "INPUT": damselfish_file,
-            "OVERLAY": reef_file,
-            "OUTPUT": output_intersection,
-            "OVERLAY_FIELDS": ["THREAT"],
-            "INPUT_FIELDS": ["BINOMIAL"]
-        }
-        algorithmOutput = processing.run("native:intersection", params, context=context, feedback=feedback)
-        '''
 
         for species in targetSpecies:
             # Create path to output file
@@ -113,12 +100,12 @@ class RasterizeSpecies(QgsProcessingAlgorithm):
             algorithmOutput = processing.run("native:extractbyattribute", params, context=context, feedback=feedback)
 
             # Rasterize species
-            output_rasterized= os.path.join(destination, species + "_rasterized.tif")
+            output_rasterized= os.path.join(destination, species.replace(" ","_") + "_rasterized.tif")
             # Set parameters for algorithm
             params = {
                 "INPUT": output_species,
                 "BURN": "1",
-                "UNITS": 1,
+                "UNITS": 0,
                 "WIDTH": 1000,
                 "HEIGHT": 1000,
                 "EXTENT": output_species,

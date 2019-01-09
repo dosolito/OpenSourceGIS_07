@@ -1,9 +1,204 @@
 <!DOCTYPE model>
 <Option type="Map">
-  <Option name="children"/>
+  <Option name="children" type="Map">
+    <Option name="native:fixgeometries_1" type="Map">
+      <Option name="active" type="bool" value="true"/>
+      <Option name="alg_config"/>
+      <Option name="alg_id" type="QString" value="native:fixgeometries"/>
+      <Option name="component_description" type="QString" value="Fix geometries of damselfish"/>
+      <Option name="component_pos_x" type="double" value="120"/>
+      <Option name="component_pos_y" type="double" value="160"/>
+      <Option name="dependencies"/>
+      <Option name="id" type="QString" value="native:fixgeometries_1"/>
+      <Option name="outputs"/>
+      <Option name="outputs_collapsed" type="bool" value="true"/>
+      <Option name="parameters_collapsed" type="bool" value="true"/>
+      <Option name="params" type="Map">
+        <Option name="INPUT" type="List">
+          <Option type="Map">
+            <Option name="parameter_name" type="QString" value="damselfile"/>
+            <Option name="source" type="int" value="0"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option name="native:fixgeometries_2" type="Map">
+      <Option name="active" type="bool" value="true"/>
+      <Option name="alg_config"/>
+      <Option name="alg_id" type="QString" value="native:fixgeometries"/>
+      <Option name="component_description" type="QString" value="Fix geometries of reefs"/>
+      <Option name="component_pos_x" type="double" value="652"/>
+      <Option name="component_pos_y" type="double" value="152"/>
+      <Option name="dependencies"/>
+      <Option name="id" type="QString" value="native:fixgeometries_2"/>
+      <Option name="outputs"/>
+      <Option name="outputs_collapsed" type="bool" value="true"/>
+      <Option name="parameters_collapsed" type="bool" value="true"/>
+      <Option name="params" type="Map">
+        <Option name="INPUT" type="List">
+          <Option type="Map">
+            <Option name="parameter_name" type="QString" value="reefs"/>
+            <Option name="source" type="int" value="0"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option name="native:reprojectlayer_1" type="Map">
+      <Option name="active" type="bool" value="true"/>
+      <Option name="alg_config"/>
+      <Option name="alg_id" type="QString" value="native:reprojectlayer"/>
+      <Option name="component_description" type="QString" value="Reproject layer"/>
+      <Option name="component_pos_x" type="double" value="118"/>
+      <Option name="component_pos_y" type="double" value="258"/>
+      <Option name="dependencies" type="StringList">
+        <Option type="QString" value="native:fixgeometries_1"/>
+      </Option>
+      <Option name="id" type="QString" value="native:reprojectlayer_1"/>
+      <Option name="outputs" type="Map">
+        <Option name="damselfish_reprojected" type="Map">
+          <Option name="child_id" type="QString" value="native:reprojectlayer_1"/>
+          <Option name="component_description" type="QString" value="damselfish_reprojected"/>
+          <Option name="component_pos_x" type="double" value="118"/>
+          <Option name="component_pos_y" type="double" value="356"/>
+          <Option name="default_value" type="Unknown" value=""/>
+          <Option name="mandatory" type="bool" value="false"/>
+          <Option name="name" type="QString" value="damselfish_reprojected"/>
+          <Option name="output_name" type="QString" value="OUTPUT"/>
+        </Option>
+      </Option>
+      <Option name="outputs_collapsed" type="bool" value="true"/>
+      <Option name="parameters_collapsed" type="bool" value="true"/>
+      <Option name="params" type="Map">
+        <Option name="INPUT" type="List">
+          <Option type="Map">
+            <Option name="child_id" type="QString" value="native:fixgeometries_1"/>
+            <Option name="output_name" type="QString" value="OUTPUT"/>
+            <Option name="source" type="int" value="1"/>
+          </Option>
+        </Option>
+        <Option name="TARGET_CRS" type="List">
+          <Option type="Map">
+            <Option name="parameter_name" type="QString" value="crs"/>
+            <Option name="source" type="int" value="0"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+    <Option name="native:reprojectlayer_2" type="Map">
+      <Option name="active" type="bool" value="true"/>
+      <Option name="alg_config"/>
+      <Option name="alg_id" type="QString" value="native:reprojectlayer"/>
+      <Option name="component_description" type="QString" value="Reproject layer"/>
+      <Option name="component_pos_x" type="double" value="668"/>
+      <Option name="component_pos_y" type="double" value="241"/>
+      <Option name="dependencies"/>
+      <Option name="id" type="QString" value="native:reprojectlayer_2"/>
+      <Option name="outputs" type="Map">
+        <Option name="reefs_reprojected" type="Map">
+          <Option name="child_id" type="QString" value="native:reprojectlayer_2"/>
+          <Option name="component_description" type="QString" value="reefs_reprojected"/>
+          <Option name="component_pos_x" type="double" value="676"/>
+          <Option name="component_pos_y" type="double" value="346"/>
+          <Option name="default_value" type="Unknown" value=""/>
+          <Option name="mandatory" type="bool" value="false"/>
+          <Option name="name" type="QString" value="reefs_reprojected"/>
+          <Option name="output_name" type="QString" value="OUTPUT"/>
+        </Option>
+      </Option>
+      <Option name="outputs_collapsed" type="bool" value="true"/>
+      <Option name="parameters_collapsed" type="bool" value="true"/>
+      <Option name="params" type="Map">
+        <Option name="INPUT" type="List">
+          <Option type="Map">
+            <Option name="child_id" type="QString" value="native:fixgeometries_2"/>
+            <Option name="output_name" type="QString" value="OUTPUT"/>
+            <Option name="source" type="int" value="1"/>
+          </Option>
+        </Option>
+        <Option name="TARGET_CRS" type="List">
+          <Option type="Map">
+            <Option name="parameter_name" type="QString" value="crs"/>
+            <Option name="source" type="int" value="0"/>
+          </Option>
+        </Option>
+      </Option>
+    </Option>
+  </Option>
   <Option name="help"/>
-  <Option type="QString" value="My Analysis" name="model_group"/>
-  <Option type="QString" value="01 - Preprocessing" name="model_name"/>
-  <Option name="parameterDefinitions"/>
-  <Option name="parameters"/>
+  <Option name="model_group" type="QString" value="My Analysis"/>
+  <Option name="model_name" type="QString" value="01 - Preprocessing"/>
+  <Option name="parameterDefinitions" type="Map">
+    <Option name="crs" type="Map">
+      <Option name="default" type="QString" value="EPSG:4326"/>
+      <Option name="description" type="QString" value="CRS"/>
+      <Option name="flags" type="int" value="0"/>
+      <Option name="metadata"/>
+      <Option name="name" type="QString" value="crs"/>
+      <Option name="parameter_type" type="QString" value="crs"/>
+    </Option>
+    <Option name="damselfile" type="Map">
+      <Option name="data_types" type="List">
+        <Option type="int" value="5"/>
+      </Option>
+      <Option name="default" type="Unknown" value=""/>
+      <Option name="description" type="QString" value="damselfish"/>
+      <Option name="flags" type="int" value="0"/>
+      <Option name="metadata"/>
+      <Option name="name" type="QString" value="damselfile"/>
+      <Option name="parameter_type" type="QString" value="vector"/>
+    </Option>
+    <Option name="native:reprojectlayer_1:damselfish_reprojected" type="Map">
+      <Option name="create_by_default" type="bool" value="true"/>
+      <Option name="data_type" type="int" value="-1"/>
+      <Option name="default" type="Unknown" value=""/>
+      <Option name="description" type="QString" value="damselfish_reprojected"/>
+      <Option name="flags" type="int" value="0"/>
+      <Option name="metadata"/>
+      <Option name="name" type="QString" value="native:reprojectlayer_1:damselfish_reprojected"/>
+      <Option name="parameter_type" type="QString" value="sink"/>
+      <Option name="supports_non_file_outputs" type="bool" value="true"/>
+    </Option>
+    <Option name="native:reprojectlayer_2:reefs_reprojected" type="Map">
+      <Option name="create_by_default" type="bool" value="true"/>
+      <Option name="data_type" type="int" value="-1"/>
+      <Option name="default" type="Unknown" value=""/>
+      <Option name="description" type="QString" value="reefs_reprojected"/>
+      <Option name="flags" type="int" value="0"/>
+      <Option name="metadata"/>
+      <Option name="name" type="QString" value="native:reprojectlayer_2:reefs_reprojected"/>
+      <Option name="parameter_type" type="QString" value="sink"/>
+      <Option name="supports_non_file_outputs" type="bool" value="true"/>
+    </Option>
+    <Option name="reefs" type="Map">
+      <Option name="data_types" type="List">
+        <Option type="int" value="5"/>
+      </Option>
+      <Option name="default" type="Unknown" value=""/>
+      <Option name="description" type="QString" value="reefs"/>
+      <Option name="flags" type="int" value="0"/>
+      <Option name="metadata"/>
+      <Option name="name" type="QString" value="reefs"/>
+      <Option name="parameter_type" type="QString" value="vector"/>
+    </Option>
+  </Option>
+  <Option name="parameters" type="Map">
+    <Option name="crs" type="Map">
+      <Option name="component_description" type="QString" value="crs"/>
+      <Option name="component_pos_x" type="double" value="380"/>
+      <Option name="component_pos_y" type="double" value="53"/>
+      <Option name="name" type="QString" value="crs"/>
+    </Option>
+    <Option name="damselfile" type="Map">
+      <Option name="component_description" type="QString" value="damselfile"/>
+      <Option name="component_pos_x" type="double" value="121"/>
+      <Option name="component_pos_y" type="double" value="51"/>
+      <Option name="name" type="QString" value="damselfile"/>
+    </Option>
+    <Option name="reefs" type="Map">
+      <Option name="component_description" type="QString" value="reefs"/>
+      <Option name="component_pos_x" type="double" value="664"/>
+      <Option name="component_pos_y" type="double" value="55"/>
+      <Option name="name" type="QString" value="reefs"/>
+    </Option>
+  </Option>
 </Option>

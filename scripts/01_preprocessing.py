@@ -124,7 +124,7 @@ class PreProcessing(QgsProcessingAlgorithm):
         # Set parameters for algorithm
         params = {
             "INPUT": output_reefs_fixed,
-            "TARGET_CRS": crs,
+            "TARGET_CRS": crs.toProj4(),
             "OUTPUT": output_reefs_reprojected
         }
 
@@ -137,7 +137,7 @@ class PreProcessing(QgsProcessingAlgorithm):
         # Set parameters for algorithm
         params = {
             "INPUT": output_damselfish_fixed,
-            "TARGET_CRS": crs,
+            "TARGET_CRS": crs.toProj4(),
             "OUTPUT": output_damselfish_reprojected
         }
 
